@@ -1,0 +1,22 @@
+#gameContainer {
+    text-align: center;
+}
+
+#snakeBoard {
+    border: 4px solid #000;
+}
+
+#score {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+#resetButton {
+    font-size: 22px;
+    font-weight: bold;
+    width: 100px;
+    height: 50px;
+    border: 4px solid;
+    border-radius: 10px;
+    cursor: pointer;
+}
