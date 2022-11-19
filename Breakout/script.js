@@ -2,17 +2,23 @@
 const grid = document.getElementById("grid");
 const scoreDisplay = document.getElementById("score");
 
-// Block dimensions
-const blockWidth = 100;
-const blockHeight = 20;
-
 // Board dimensions
 const boardWidth = 780;
 const boardHeight = 400;
 
+// Block dimensions
+const blockWidth = 100;
+const blockHeight = 20;
+
 // User Position
 const userStartPos = 325;
 let currentUserPos = userStartPos;
+
+// Ball Position
+const ballStartPosX = 380;
+const ballStartPosY = 20;
+let currentBallPosX = ballStartPosX;
+let currentBallPosY = ballStartPosY;
 
 // Block class
 class Block {
@@ -62,30 +68,40 @@ let drawAndAddBlocks = () => {
 };
 drawAndAddBlocks();
 
-// Draw User
+// Add User
 const user = document.createElement("div");
 user.classList.add("user");
 grid.appendChild(user);
 
-// Add User
-let addUser = () => {
+// Draw User
+let drawUser = () => {
   user.style.marginLeft = currentUserPos + "px";
   user.style.marginBottom = "10px";
 };
-addUser();
-
-let moveUser = (e) => {
-  // If left arrow is clicked
-  if (e.keyCode == "37") {
-    currentUserPos = currentUserPos - 10;
-    addUser();
-  }
-  // If right arrow is clicked
-  if (e.keyCode == "39") {
-    currentUserPos = currentUserPos + 10;
-    addUser();
-  }
-};
+drawUser();
 
 // Move User
+let moveUser = (e) => {
+  // If user is not outside of the grid
+  if (currentUserPos > 5) {
+    // If left arrow is clicked
+    if (e.keyCode == "37") {
+      currentUserPos = currentUserPos - 10;
+      drawUser();
+    }
+  }
+  // If user is not outside the grid
+  if (currentUserPos + 135 < 780) {
+    // If right arrow is clicked
+    if (e.keyCode == "39") {
+      currentUserPos = currentUserPos + 10;
+      drawUser();
+    }
+  }
+};
 document.addEventListener("keydown", moveUser);
+
+// Add Ball
+const ball = document.createElement("div");
+ball.classList.add("ball");
+grid.appendChild(ball);
