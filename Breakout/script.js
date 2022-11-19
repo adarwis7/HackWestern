@@ -73,3 +73,19 @@ let addUser = () => {
   user.style.marginBottom = "10px";
 };
 addUser();
+
+let moveUser = (e) => {
+  // If left arrow is clicked
+  if (e.keyCode == "37") {
+    currentUserPos = currentUserPos - 10;
+    addUser();
+  }
+  // If right arrow is clicked
+  if (e.keyCode == "39") {
+    currentUserPos = currentUserPos + 10;
+    addUser();
+  }
+};
+
+// Move User
+document.addEventListener("keydown", moveUser);
