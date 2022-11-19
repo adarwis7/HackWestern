@@ -10,6 +10,10 @@ const blockHeight = 20;
 const boardWidth = 780;
 const boardHeight = 400;
 
+// User Position
+const userStartPos = 325;
+let currentUserPos = userStartPos;
+
 // Block class
 class Block {
   constructor(xAxis, yAxis) {}
@@ -44,7 +48,7 @@ const blocks = [
   new Block(450, 150),
 ];
 
-// Add blocks
+// Add Blocks
 let drawAndAddBlocks = () => {
   for (let i = 0; i < blocks.length + 3; i++) {
     const block = document.createElement("div");
@@ -53,7 +57,19 @@ let drawAndAddBlocks = () => {
     let topMarginCounter = Math.floor(i / 7) * 10 + 10 + Math.floor(i / 7) * blockHeight;
     block.style.marginLeft = leftMarginCounter + "px";
     block.style.marginTop = topMarginCounter + "px";
-    grid.append(block);
+    grid.appendChild(block);
   }
 };
 drawAndAddBlocks();
+
+// Draw User
+const user = document.createElement("div");
+user.classList.add("user");
+grid.appendChild(user);
+
+// Add User
+let addUser = () => {
+  user.style.marginLeft = currentUserPos + "px";
+  user.style.marginBottom = "10px";
+};
+addUser();
