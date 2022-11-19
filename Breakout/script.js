@@ -105,3 +105,10 @@ document.addEventListener("keydown", moveUser);
 const ball = document.createElement("div");
 ball.classList.add("ball");
 grid.appendChild(ball);
+
+// Draw Ball
+let drawBall = () => {
+  ball.style.marginLeft = currentBallPosX + "px";
+  ball.style.marginBottom = currentBallPosY + "px";
+};
+drawBall();
