@@ -112,3 +112,16 @@ let drawBall = () => {
   ball.style.marginBottom = currentBallPosY + "px";
 };
 drawBall();
+
+// Move Ball
+let ballMovement = () => {
+  if (currentBallPosX < 760) {
+    currentBallPosX = currentBallPosX + 1;
+  }
+  if (currentBallPosY < 380) {
+    currentBallPosY = currentBallPosY + 1;
+  }
+  drawBall();
+  setTimeout(ballMovement, 3);
+};
+ballMovement();
